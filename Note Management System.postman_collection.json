@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "46a8dc39-def2-49e7-81b9-6930aa7747fd",
+		"name": "Note Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33855635"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Omar\",\r\n    \"email\": \"omar@gmail.com\",\r\n    \"password\": \"Omar@123\",\r\n    \"confirmPassword\": \"Omar@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"omar@gmail.com\",\r\n    \"password\": \"Omar@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "refreshtoken",
+								"value": "{{REFRESH_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"yousefadel.dev@gamil.com\",\r\n    \"password\": \"Yousef@123\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/auth/refreshtoken",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"refreshtoken"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Profile Pic",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "{{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/yosof/OneDrive/Desktop/Multer images/images.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/auth/uploadProfilePic",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"uploadProfilePic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign Out",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "{{ACCESS_TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "refreshtoken",
+								"value": "{{REFRESH_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"yousefadel.dev@gmail.com\",\r\n    \"password\": \"Yousef@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/signOut",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"signOut"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forget Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"yousefadel.dev@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/sendForgetPasswordOtp",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"sendForgetPasswordOtp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "refreshtoken",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODIxYWU5ZjlhOWUyMzZkMGRmZGJkMTYiLCJlbWFpbCI6InlvdXNlZmFkZWwuZGV2QGdhbWlsLmNvbSIsImlhdCI6MTc0NzAzODQ1MSwiZXhwIjoxNzQ3NjQzMjUxLCJqdGkiOiJjYjhjN2Y5ZS1hOTZhLTRmOWMtOTExNS1hMTI3NGQ2N2ZjNTgifQ.yVpWETt6LalzKhQ0VGCgpeJoHhHMOPF7jJYvhop_2YI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"yousefadel.dev@gmail.com\",\r\n    \"otp\": 4439,\r\n    \"newPassword\": \"Joeadel123@\",\r\n    \"confirmNewPassword\": \"Joeadel123@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/resetPassword",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"resetPassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Note",
+			"item": [
+				{
+					"name": "Create Note",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg1OTY1ODFjNDJhMzlmYzQzNGRlNmMiLCJpYXQiOjE3NTM1ODUyNTgsImV4cCI6MTc1MzY3MTY1OCwianRpIjoiZWExMTA2YmUtZTYwMi00MmUxLThiMmYtN2MxODY0YjAzMTMyIn0.sU2te9S-R-Db2rVVmlRnOBYOR-oefncvZld1UKaMwNrsxF8HWhyGFKNjgsxSaRxyRY3qzOX85LXPBcxuyTBq6Xz0Z-RuzD8qnmlrwqpKU25tFGkdJ4w8U_6DwHUm0Mt36SS5idebDQ8H8YbYGb2wn4hbuPeokRwPo0rEq20eDuV0KsW5gahsR5q7wIYM-eEzhhS7doyMfQie8Kxy_XuNwTJxJte_Oghmi9pHpLs-5Ozs-QcLpQgy0JG4ALigiZDrlsHZ2G4JbHd7XImJmwH0qwyh1geOkeo3iQ1bHROnYbtM2EtBno21tcEPZObVAFqr0T3qkd9N9takVNZ9MhZKTA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"title\": \"Weekend Chores\",\r\n    \"content\": \"Laundry, Vacuum living room, Clean kitchen, Mow lawn, Wash car, Take out trash.\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/note/createNote",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"note",
+								"createNote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteNote",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "{{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/note/deleteNote/:noteId",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"note",
+								"deleteNote",
+								":noteId"
+							],
+							"variable": [
+								{
+									"key": "noteId",
+									"value": "68851f2def71bb996fa7cbd7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Notes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": \"query { notes(ownerId: \\\"688596581c42a39fc434de6c\\\",  title: \\\"ideas\\\", startDate :\\\"2025-07-27T03:01:40.173+00:00\\\", endDate :\\\"2025-07-27T03:01:55.783+00:00\\\", page: 1, limit: 5) { title content createdAt owner { username email } } }\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/graphql",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Summarize Note",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "{{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/note/notes/:noteId/summarize",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"note",
+								"notes",
+								":noteId",
+								"summarize"
+							],
+							"variable": [
+								{
+									"key": "noteId",
+									"value": "688596941c42a39fc434de71"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "ACCESS_TOKEN",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg0YjhiN2QxMGNiODFiNWQ2NzZkY2UiLCJpYXQiOjE3NTM1NDM5OTAsImV4cCI6MTc1MzYzMDM5MCwianRpIjoiOGMyZjFkZmQtYTBmMS00ZmQzLTkzODEtYmE5ODJmNjM1NmFjIn0.VuhDC6IUCFv5X8TX3etGCawUJSajQFLbrRIKGPoTHvSvoeWETRrEPFnQBCOekwkoO_Yl1P0DCiplz-QSNeqrz3spemUoDyPhcP52UvEzqGmwDwlEaq2CkHM7V_Uslr91tKnARHwFOT6UVJonrFOJdrqBytsIENXQ8FQomWEVdVYDHCw_cVsvJPTfrg3xgbBrpGzD4n0K1Vv9N8E_3blF7oHCTilbyMObNK11EF7YJ7FYm0qMXq-EX3EkuzCIa07GYTuQAxv3JPAFusGeH1YEzam0CwIWmPbtyuXtkhloYQtI77Ca9VgI-y76E4TIYun7rqq2iZaYlkrjnX_aZfflDA",
+			"type": "default"
+		},
+		{
+			"key": "REFRESH_TOKEN",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg0YjhiN2QxMGNiODFiNWQ2NzZkY2UiLCJpYXQiOjE3NTM1NDM5OTAsImV4cCI6MTc1NDE0ODc5MCwianRpIjoiMzE2OGUyNmQtMDMyNS00ODdhLWJlMTMtNzkzMmYxNDJiZjVkIn0.AIkdRGTC476uiMmf0ohx91779b1MgIkGRzbIjsZzpDKqTpPmn_tAK8bPgWKT5Hy0twXZWZSLucJw_Zx596S8FBPca3yCclA1u2Vv-DrOheJ_vYzFaTsvEFqBUtmLwuvgPCgqbBxI6wMOTL3aWk91LJCJTyPihHJ8wh8Bz7WOWA0gfT2N9oZx3fEuO6BvH6qdMPWDcjNqg9tnNxjIfeQwvdbD-43T6T6CYx3qzDSpYum5RxO2xUMIyAA0LOnKtbfdzA0TpRgy4A9EcWAykGW_dtmQoEG4nshxEV_Ynf2A0NnxSpaWLy1YRKHf97F3HuSBdNbtjCU6aGI8ysM8eJPnSg",
+			"type": "default"
+		}
+	]
+}

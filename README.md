@@ -105,6 +105,10 @@ Server will run at: `http://localhost:3000`
 
 ## Postman Collection
 
+https://documenter.getpostman.com/view/33855635/2sB3B7MYoq
+
+## Postman Documentation
+
 Postman collection is included in the repository for testing the APIs.
 
 ---
