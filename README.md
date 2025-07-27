@@ -52,7 +52,7 @@ Create a `.env` file with the following content:
 
 ```env
 PORT=3000
-MONGO_URI=your_mongo_connection_string
+DATABASE_URI=your_mongo_connection_string
 HUGGINGFACE_API_KEY=your_HUGGINGFACE_key
 EMAIL_USER=your_email@example.com
 EMAIL_PASS=your_email_password
