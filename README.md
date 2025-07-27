@@ -56,6 +56,9 @@ MONGO_URI=your_mongo_connection_string
 HUGGINGFACE_API_KEY=your_HUGGINGFACE_key
 EMAIL_USER=your_email@example.com
 EMAIL_PASS=your_email_password
+ACCESS_EXPIRATION_TIME =your_access_token_expiration_time
+REFRESH_EXPIRATION_TIME =your_refresh_token_expiration_time
+SALT_ROUNDS =your_salt_rounds_number_for_hashing
 ```
 
 ### 5. Run the Application
